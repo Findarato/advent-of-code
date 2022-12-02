@@ -46,13 +46,6 @@ outcome = {
     "Z": "Win"
 }
 
-me_values = {
-    1: "Rock",
-    2: "Paper",
-    3: "Scissors"
-}
-
-
 def score_me(play, adjusted_score):
 
     if play == "Rock":
@@ -66,22 +59,22 @@ def score_me(play, adjusted_score):
 
 def did_i_win(opponent, outcome):
 
-    print(opponent, outcome)
-
     global current_score
-    global opponent_values
 
     # Quick Tie test
     if outcome == "Lose":
         if opponent == "Rock":
             # This one I know the result
-            current_score = score_me("Paper", current_score)
+            current_score = score_me("Scissors", current_score)
+            print("🪨","✂")
         elif opponent == "Paper":
             # This one I know the result
-            current_score = score_me("Scissors", current_score)
+            current_score = score_me("Rock", current_score)
+            print("📰","🪨")
         elif opponent == "Scissors":
             # This one I know the result
-            current_score = score_me("Rock", current_score)
+            print("✂","📰")
+            current_score = score_me("Paper", current_score)
         return "Lose"
 
     if outcome == "Win":
@@ -89,13 +82,16 @@ def did_i_win(opponent, outcome):
         # current_score = score_me(opponent, current_score)  # This one I know the result
         if opponent == "Rock":
             # This one I know the result
-            current_score = score_me("Scissors", current_score)
+            current_score = score_me("Paper", current_score)
+            print("🪨","📰")
         elif opponent == "Paper":
             # This one I know the result
-            current_score = score_me("Rock", current_score)
+            current_score = score_me("Scissors", current_score)
+            print("📰","✂")
         elif opponent == "Scissors":
             # This one I know the result
-            current_score = score_me("paper", current_score)
+            current_score = score_me("Rock", current_score)
+            print("✂","🪨")
 
         return "Win"
 
@@ -112,3 +108,6 @@ for line in Lines:
     results = did_i_win(
         opponent_values[match_results[0]], outcome[match_results[1]])
     print(results, current_score)
+
+
+# That's the right answer! You are one gold star closer to collecting enough star fruit.

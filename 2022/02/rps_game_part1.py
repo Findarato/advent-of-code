@@ -89,3 +89,5 @@ for line in Lines:
 
     results = did_i_win(opponent[match_results[0]], me[match_results[1]])
     print(results, current_score)
+
+# That's the right answer! You are one gold star closer to collecting enough star fruit. [Continue to Part Two]
